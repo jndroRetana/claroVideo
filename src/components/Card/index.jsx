@@ -1,10 +1,14 @@
 /** @format */
 import PropTypes from "prop-types";
 import plus from "../../assets/bgGreen.svg";
-import { WrapperCard, Image, DetailsButton, PlusImage } from "./styles";
+import {
+  WrapperCard,
+  Image,
+  DetailsButton,
+  PlusImage,
+  Gradient,
+} from "./styles";
 import { getDetails } from "../../services/getDetails";
-import { useEffect, useState } from "react";
-
 export default function Card({ urlImage, setShowDetails, id, setDetails }) {
   const handleDetails = async (id) => {
     setShowDetails(true);
@@ -14,6 +18,7 @@ export default function Card({ urlImage, setShowDetails, id, setDetails }) {
   return (
     <>
       <WrapperCard urlImage={urlImage}>
+        <Gradient onClick={() => handleDetails(id)} />
         <DetailsButton>
           <PlusImage src={plus} onClick={() => handleDetails(id)} />
         </DetailsButton>

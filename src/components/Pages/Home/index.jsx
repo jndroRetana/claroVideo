@@ -23,7 +23,11 @@ export default function Home() {
   return (
     <>
       {showDetails && (
-        <Details setShowDetails={setShowDetails} details={details} />
+        <Details
+          setShowDetails={setShowDetails}
+          details={details}
+          setDetails={setDetails}
+        />
       )}
       <Header>
         <Logo src={logo} />
