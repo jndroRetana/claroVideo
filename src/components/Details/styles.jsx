@@ -13,6 +13,4 @@ export const WrapperDetails = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow-y: scroll;
-  scroll-behavior: smooth;
 `;

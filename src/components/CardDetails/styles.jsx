@@ -4,13 +4,22 @@ import styled from "styled-components";
 
 export const WrapperInfo = styled.div`
   //TODO: change size
-  width: 50%;
+  width: 90%;
   height: auto;
+
   background-color: black;
   border-radius: 5px;
-  padding: 20px;
-  margin: 30px 0;
+
   position: relative;
+  @media (min-width: 1024px) {
+    width: 70%;
+    height: auto;
+    padding: 20px;
+    margin: 30px 0;
+  }
+  @media (min-width: 1444px) {
+    width: 60%;
+  }
 `;
 
 export const CloseImage = styled.img`
@@ -18,6 +27,7 @@ export const CloseImage = styled.img`
   height: 30px;
   position: absolute;
   right: 20px;
+  top: 20px;
 `;
 export const MovieImage = styled.img``;
 
@@ -48,15 +58,30 @@ export const WrapperMediaInfo = styled.div`
   display: flex;
   justify-content: start;
   align-items: center;
+  gap: 2px;
+  ${TextInfo} {
+    margin-right: 30px;
+  }
 `;
 
 export const WrapperData = styled.div`
   display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 2fr;
+  column-gap: 20px;
+  row-gap: 10px;
+  padding: 20px;
+  @media (min-width: 768px) {
+    grid-template-columns: auto 1fr;
+    grid-template-rows: 1fr;
+    align-items: center;
+  }
+  /* display: grid;
   grid-template-columns: auto 1fr;
   column-gap: 20px;
   row-gap: 10px;
   padding: 20px;
-  align-items: center;
+  align-items: center; */
 `;
 
 export const WrapperExtraInfo = styled(WrapperData)``;

@@ -1,7 +1,6 @@
 /** @format */
 import { useState } from "react";
 import { WrapperSearch, InputSearch, ButtonSearch } from "./styles";
-
 export default function Search() {
   const [valueSearch, setValueSearch] = useState("");
   const handleInput = (event) => {

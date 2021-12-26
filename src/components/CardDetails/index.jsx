@@ -62,9 +62,9 @@ export default function CardDetails({ setShowDetails, details, setDetails }) {
           <div>
             <TextInfoTitle>{details?.title ?? ""}</TextInfoTitle>
             <WrapperMediaInfo>
-              <TextInfo>{`(${media?.publishyear ?? ""}) ${
-                media?.duratio ?? ""
-              } ${media?.rating?.code ?? ""}`}</TextInfo>
+              <TextInfo>{`(${media?.publishyear ?? ""})`}</TextInfo>
+              <TextInfo>{` ${media?.duration ?? ""}`}</TextInfo>
+              <TextInfo>{` ${media?.rating?.code ?? ""}`}</TextInfo>
             </WrapperMediaInfo>
             <WrapperExtraInfo>
               <TextInfo>{`Genero: `}</TextInfo>
