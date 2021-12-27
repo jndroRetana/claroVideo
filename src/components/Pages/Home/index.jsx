@@ -1,6 +1,6 @@
 /** @format */
 import { useEffect, useState } from "react";
-import { fetchMovies } from "../../../services/getList";
+import { useSelector, useDispatch } from "react-redux";
 
 import {
   Header,
@@ -12,37 +12,30 @@ import {
 import Search from "../../Search";
 import CardList from "../../CardList";
 import Details from "../../Details";
+import Loading from "../../Loading";
 import logo from "../../../assets/Imagen.png";
 import hMenu from "../../../assets/hMenu.svg";
+import { getMovies } from "../../../actions";
 
 export default function Home() {
-  const [data, setData] = useState([]);
   const [showDetails, setShowDetails] = useState(false);
   const [view, setView] = useState(false);
-  const [details, setDetails] = useState({});
+
+  const movies = useSelector((state) => state?.movies);
+  const filter = useSelector((state) => state?.filter);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    const fetchList = async () => {
-      const response = await fetchMovies();
-      console.log(response);
-      setData(response);
-    };
-    fetchList();
-  }, []);
+    dispatch(getMovies());
+  }, [dispatch]);
 
   const handleHamburgerMenu = () => {
     setView(!view);
   };
-
+  if (movies?.length === 0) return <Loading />;
   return (
     <>
-      {showDetails && (
-        <Details
-          setShowDetails={setShowDetails}
-          details={details}
-          setDetails={setDetails}
-        />
-      )}
+      {showDetails && <Details setShowDetails={setShowDetails} />}
       <Header>
         <Logo src={logo} />
         <WrapperSearchHeader>
@@ -54,9 +47,8 @@ export default function Home() {
         <Search />
       </WrapperSearchMenu>
       <CardList
-        data={data}
+        data={filter?.length > 0 ? filter : movies}
         setShowDetails={setShowDetails}
-        setDetails={setDetails}
       />
     </>
   );

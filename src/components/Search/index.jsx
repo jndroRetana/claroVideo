@@ -1,23 +1,28 @@
 /** @format */
 import { useState } from "react";
-import { WrapperSearch, InputSearch, ButtonSearch } from "./styles";
+import { WrapperSearch, InputSearch } from "./styles";
+import { useSelector, useDispatch } from "react-redux";
+import { filterMovies } from "../../actions";
+
 export default function Search() {
   const [valueSearch, setValueSearch] = useState("");
+
+  const movies = useSelector((state) => state.movies);
+  const dispatch = useDispatch();
+
   const handleInput = (event) => {
     setValueSearch(event.target.value);
-    console.log(event.target.value);
+    dispatch(filterMovies(event.target.value, movies));
   };
-  const handleSearch = () => {
-    alert("hola");
-    setValueSearch("");
-  };
+
   return (
     <>
       <WrapperSearch>
-        <InputSearch onChange={handleInput} value={valueSearch} />
-        <ButtonSearch type='button' onClick={handleSearch}>
-          Buscar
-        </ButtonSearch>
+        <InputSearch
+          onChange={handleInput}
+          value={valueSearch}
+          placeholder='Buscar'
+        />
       </WrapperSearch>
     </>
   );

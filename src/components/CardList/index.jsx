@@ -4,16 +4,15 @@ import PropTypes from "prop-types";
 import { Container } from "./styles";
 import Card from "../Card/index";
 
-export default function CardList({ data, setShowDetails, setDetails }) {
+export default function CardList({ data, setShowDetails }) {
   return (
     <>
-      <Container>
+      <Container data-testid='container-list'>
         {data.map(({ id, image_small }) => (
           <Card
             key={id}
             urlImage={image_small}
             setShowDetails={setShowDetails}
-            setDetails={setDetails}
             id={id}
           />
         ))}
@@ -24,64 +23,5 @@ export default function CardList({ data, setShowDetails, setDetails }) {
 
 CardList.propTypes = {
   data: PropTypes.array,
-};
-
-CardList.defaultProps = {
-  data: [
-    {
-      title: "Mi vecino es un espia",
-      image_small:
-        "https://clarovideocdn7.clarovideo.net/PELICULAS/SPYNEXTDOORTHE/EXPORTACION_WEB/SS/SPYNEXTDOORTHEWHORIZONTAL.jpg?size=290x163",
-    },
-    {
-      title: "Mi vecino es un espia",
-      image_small:
-        "https://clarovideocdn7.clarovideo.net/PELICULAS/SPYNEXTDOORTHE/EXPORTACION_WEB/SS/SPYNEXTDOORTHEWHORIZONTAL.jpg?size=290x163",
-    },
-    {
-      title: "Mi vecino es un espia",
-      image_small:
-        "https://clarovideocdn7.clarovideo.net/PELICULAS/SPYNEXTDOORTHE/EXPORTACION_WEB/SS/SPYNEXTDOORTHEWHORIZONTAL.jpg?size=290x163",
-    },
-    {
-      title: "Mi vecino es un espia",
-      image_small:
-        "https://clarovideocdn7.clarovideo.net/PELICULAS/SPYNEXTDOORTHE/EXPORTACION_WEB/SS/SPYNEXTDOORTHEWHORIZONTAL.jpg?size=290x163",
-    },
-    {
-      title: "Mi vecino es un espia",
-      image_small:
-        "https://clarovideocdn7.clarovideo.net/PELICULAS/SPYNEXTDOORTHE/EXPORTACION_WEB/SS/SPYNEXTDOORTHEWHORIZONTAL.jpg?size=290x163",
-    },
-    {
-      title: "Mi vecino es un espia",
-      image_small:
-        "https://clarovideocdn7.clarovideo.net/PELICULAS/SPYNEXTDOORTHE/EXPORTACION_WEB/SS/SPYNEXTDOORTHEWHORIZONTAL.jpg?size=290x163",
-    },
-    {
-      title: "Mi vecino es un espia",
-      image_small:
-        "https://clarovideocdn7.clarovideo.net/PELICULAS/SPYNEXTDOORTHE/EXPORTACION_WEB/SS/SPYNEXTDOORTHEWHORIZONTAL.jpg?size=290x163",
-    },
-    {
-      title: "Mi vecino es un espia",
-      image_small:
-        "https://clarovideocdn7.clarovideo.net/PELICULAS/SPYNEXTDOORTHE/EXPORTACION_WEB/SS/SPYNEXTDOORTHEWHORIZONTAL.jpg?size=290x163",
-    },
-    {
-      title: "Mi vecino es un espia",
-      image_small:
-        "https://clarovideocdn7.clarovideo.net/PELICULAS/SPYNEXTDOORTHE/EXPORTACION_WEB/SS/SPYNEXTDOORTHEWHORIZONTAL.jpg?size=290x163",
-    },
-    {
-      title: "Mi vecino es un espia",
-      image_small:
-        "https://clarovideocdn7.clarovideo.net/PELICULAS/SPYNEXTDOORTHE/EXPORTACION_WEB/SS/SPYNEXTDOORTHEWHORIZONTAL.jpg?size=290x163",
-    },
-    {
-      title: "Mi vecino es un espia",
-      image_small:
-        "https://clarovideocdn7.clarovideo.net/PELICULAS/SPYNEXTDOORTHE/EXPORTACION_WEB/SS/SPYNEXTDOORTHEWHORIZONTAL.jpg?size=290x163",
-    },
-  ],
+  setShowDetails: PropTypes.func,
 };

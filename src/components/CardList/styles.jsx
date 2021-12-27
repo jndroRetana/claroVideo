@@ -9,7 +9,8 @@ export const Container = styled.div`
   grid-template-columns: repeat(1, 1fr);
   row-gap: 20px;
   column-gap: 20px;
-  @media (min-width: 768px) {
+  margin: 0 auto;
+  @media (min-width: 573px) {
     grid-template-columns: repeat(2, 1fr);
   }
   @media (min-width: 1024px) {

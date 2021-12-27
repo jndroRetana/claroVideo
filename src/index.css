@@ -6,13 +6,26 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  padding: 20px;
+  padding: 20px 25px;
 }
 
+@media (min-width: 768px) {
+  body {
+    
+    padding: 20px 50px;
+  }
+}
 @media (min-width: 1444px) {
   body {
     
-    padding: 10px 100px;
+    padding: 20px 150px;
+  }
+}
+
+@media (min-width: 1870px) {
+  body {
+    
+    padding: 20px 250px;
   }
 }
 code {

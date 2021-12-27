@@ -8,21 +8,29 @@ import {
   PlusImage,
   Gradient,
 } from "./styles";
-import { getDetails } from "../../services/getDetails";
-export default function Card({ urlImage, setShowDetails, id, setDetails }) {
-  const handleDetails = async (id) => {
+import { useDispatch } from "react-redux";
+import { getDetailsMovie } from "../../actions";
+
+export default function Card({ urlImage, setShowDetails, id }) {
+  const dispatch = useDispatch();
+
+  const handleDetails = (id) => {
+    dispatch(getDetailsMovie(id));
     setShowDetails(true);
-    const resp = await getDetails(id);
-    !resp.error ? setDetails(resp.data) : setDetails({});
   };
+
   return (
     <>
-      <WrapperCard urlImage={urlImage}>
+      <WrapperCard
+        data-testid='card'
+        urlImage={urlImage}
+        onClick={() => handleDetails(id)}
+      >
         <Gradient onClick={() => handleDetails(id)} />
         <DetailsButton>
           <PlusImage src={plus} onClick={() => handleDetails(id)} />
         </DetailsButton>
-        <Image src={urlImage} />
+        <Image src={urlImage ?? ""} />
       </WrapperCard>
     </>
   );
@@ -30,9 +38,6 @@ export default function Card({ urlImage, setShowDetails, id, setDetails }) {
 
 Card.propTypes = {
   urlImage: PropTypes.string,
-};
-
-Card.defaultProps = {
-  urlImage:
-    "https://clarovideocdn7.clarovideo.net/PELICULAS/SPYNEXTDOORTHE/EXPORTACION_WEB/SS/SPYNEXTDOORTHEWHORIZONTAL.jpg?size=290x163",
+  setShowDetails: PropTypes.func,
+  id: PropTypes.number,
 };

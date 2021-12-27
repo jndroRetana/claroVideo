@@ -11,7 +11,6 @@ export const getDetails = async (id) => {
         group: { common },
       },
     } = await resp.json();
-    console.log(common);
 
     return { error: false, data: common };
   } catch (error) {

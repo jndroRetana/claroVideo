@@ -40,13 +40,15 @@ export const WrapperCard = styled.div`
   width: 100%;
   height: 190px;
   border-radius: 5px;
-  :hover {
-    -webkit-transform: scale(1.3);
-    transform: scale(1.3);
-    overflow: hidden;
-    z-index: 100;
-    ${DetailsButton}, ${Gradient} {
-      display: block;
+  @media (min-width: 1024px) {
+    :hover {
+      -webkit-transform: scale(1.3);
+      transform: scale(1.3);
+      overflow: hidden;
+      z-index: 100;
+      ${DetailsButton}, ${Gradient} {
+        display: block;
+      }
     }
   }
 `;

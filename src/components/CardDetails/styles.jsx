@@ -4,18 +4,18 @@ import styled from "styled-components";
 
 export const WrapperInfo = styled.div`
   //TODO: change size
-  width: 90%;
+  width: 100%;
   height: auto;
-
   background-color: black;
   border-radius: 5px;
-
   position: relative;
+  @media (min-width: 573px) {
+    width: 80%;
+    margin: 85px auto;
+  }
   @media (min-width: 1024px) {
-    width: 70%;
-    height: auto;
     padding: 20px;
-    margin: 30px 0;
+    margin: 100px auto;
   }
   @media (min-width: 1444px) {
     width: 60%;
@@ -76,12 +76,6 @@ export const WrapperData = styled.div`
     grid-template-rows: 1fr;
     align-items: center;
   }
-  /* display: grid;
-  grid-template-columns: auto 1fr;
-  column-gap: 20px;
-  row-gap: 10px;
-  padding: 20px;
-  align-items: center; */
 `;
 
 export const WrapperExtraInfo = styled(WrapperData)``;

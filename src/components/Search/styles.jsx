@@ -6,22 +6,19 @@ export const WrapperSearch = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
-  justify-content: end;
-  column-gap: 30px;
+  justify-content: center;
   margin-right: 25px;
   margin-bottom: 5px;
+  @media (min-width: 768px) {
+    justify-content: end;
+  }
 `;
 
 export const InputSearch = styled.input`
-  width: 50%;
+  width: 100%;
   height: 30px;
   font-size: 22px;
-`;
-export const ButtonSearch = styled.button`
-  width: 90px;
-  background-color: red;
-  border-radius: 5px;
-  outline: none;
-  border: none;
-  color: white;
+  @media (min-width: 768px) {
+    width: 60%;
+  }
 `;
